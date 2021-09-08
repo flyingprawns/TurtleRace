@@ -10,25 +10,34 @@ def reached_finish_line(a_turtle):
 
 
 # Create turtles
-turtle_count = 6
+turtle_count = 7
 my_turtles = []
 for i in range(turtle_count):
     my_turtles.append(Turtle(shape='turtle'))
 
 # Set turtle colors
-colors = ['red', 'orange', 'gold', 'green', 'blue', 'purple']
+colors = ['red', 'orange', 'gold', 'green', 'blue', 'purple', 'gray']
+random.shuffle(colors)
 for i in range(turtle_count):
     my_turtles[i].color(colors[i])
 
 # Setup screen
 screen = Screen()
-screen.setup(width=500, height=400)
+screen.setup(width=500, height=450)
+
+# Line turtles up so user can see all colors
+x_position = -180
+for turtle in my_turtles:
+    turtle.penup()
+    turtle.goto(x_position, 0)
+    turtle.pendown()
+    x_position += 55
 
 # Get user to place a bet
 your_bet = screen.textinput(title='Make your bet!', prompt='Which turtle will win the race? Enter a color: ')
 
 # Move turtles to starting positions
-y_position = -135
+y_position = -165
 for turtle in my_turtles:
     turtle.penup()
     turtle.goto(-225, y_position)
@@ -56,4 +65,5 @@ else:
 
 # Exit program on user click
 screen.exitonclick()
+print()
 print('Turtle race is over. Hope you had fun!')

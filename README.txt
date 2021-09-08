@@ -1,7 +1,8 @@
 ----------------
 Turtle Race
 ----------------
-
+Must have Python 3 installed. 
+Double click main.py to run the program.
 
 
 ---------
